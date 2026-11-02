@@ -4,20 +4,17 @@
 // import viteLogo from './assets/vite.svg'
 import './App.css'
 import { Fragment } from 'react';
-import ClassComponent from './ClassComponent';
-import FunctionComponent from './FunctionComponent';
+import User from './User.jsx';
+
 
 const App = ()=>{
 
   return (
   <>
-
-    <p>hello my friend</p>
-    <h1>this is test for my app component</h1>
-
-    <FunctionComponent/>
-    <ClassComponent/>
-
+    <User Fname="Mohammad" Lname="Ghiyasvand" City="Tehran" Age={25} />
+    <User Fname="Mhmd" Lname="Ghiyas" City="Teh" Age={24} />
+    <User Fname="M" Lname="G" City="T" Age={20} />
+    <User Fname="A" Lname="B" City="C" Age={28} />
   </>
   
   );
