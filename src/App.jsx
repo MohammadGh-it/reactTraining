@@ -5,23 +5,27 @@
 import './App.css'
 import { Fragment } from 'react';
 import User from './User.jsx';
+import { useState } from 'react';
 
-
-
+  const initialUsers = [
+  {Fname:"Mohammad" , Lname:"Ghiyasvand" , City:"Tehran" , Age:25},
+  {Fname:"Mhmd" , Lname:"Gh" , City:"T" , Age:24},
+  {Fname:"A" , Lname:"A" , City:"A" , Age:22},
+  {Fname:"B" , Lname:"B" , City:"B" , Age:21},
+];
 
 const App = ()=>{
-  const users = [
-  {Fname:"Mohammad" , Lname:"Ghiyasvand" , City:"Tehran" , Age:25},
-  {Fname:"Mohammad" , Lname:"Ghiyasvand" , City:"Tehran" , Age:25},
-  {Fname:"Mohammad" , Lname:"Ghiyasvand" , City:"Tehran" , Age:25},
-  {Fname:"Mohammad" , Lname:"Ghiyasvand" , City:"Tehran" , Age:25},
-];
+  const [users , setUsers] = useState(initialUsers);
+  const myBotton = (name) => {
+    const newUsers = users.filter((myuser) => myuser.Fname !== name);
+    setUsers(newUsers);
+  };
 
   return (
   <>
     {users.map((myuser)=>(
-      <User key={myuser.name} Fname={myuser.Fname} Lname={myuser.Lname} City={myuser.City} Age={myuser.Age}/>
-    ))}
+      <User key={myuser.Fname} {...myuser} myBotton = {() => myBotton(myuser.Fname)} />
+    ))};
   </>
   
   );
