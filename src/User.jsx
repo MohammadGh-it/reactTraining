@@ -1,4 +1,11 @@
 const User = ({Fname, Lname, City, Age}) => {
+    const myBotton = (e, value)=>{
+        console.log("clicked on deleted");
+        console.log(e,value);
+    };
+    const myInput = (e,value)=>{
+        console.log(e.target.value);
+    };
     return (
         <div>
             <h2>User information</h2>
@@ -14,6 +21,10 @@ const User = ({Fname, Lname, City, Age}) => {
                 </li>
                 <li>
                     <strong>age:</strong> {Age}
+                </li>
+                <li>
+                    <button onClick={(e)=>{myBotton(e,"test")}}>delete</button>
+                    <input type="text" onChange={myInput} />
                 </li>
             </ul>
         </div>

@@ -7,14 +7,21 @@ import { Fragment } from 'react';
 import User from './User.jsx';
 
 
+
+
 const App = ()=>{
+  const users = [
+  {Fname:"Mohammad" , Lname:"Ghiyasvand" , City:"Tehran" , Age:25},
+  {Fname:"Mohammad" , Lname:"Ghiyasvand" , City:"Tehran" , Age:25},
+  {Fname:"Mohammad" , Lname:"Ghiyasvand" , City:"Tehran" , Age:25},
+  {Fname:"Mohammad" , Lname:"Ghiyasvand" , City:"Tehran" , Age:25},
+];
 
   return (
   <>
-    <User Fname="Mohammad" Lname="Ghiyasvand" City="Tehran" Age={25} />
-    <User Fname="Mhmd" Lname="Ghiyas" City="Teh" Age={24} />
-    <User Fname="M" Lname="G" City="T" Age={20} />
-    <User Fname="A" Lname="B" City="C" Age={28} />
+    {users.map((myuser)=>(
+      <User key={myuser.name} Fname={myuser.Fname} Lname={myuser.Lname} City={myuser.City} Age={myuser.Age}/>
+    ))}
   </>
   
   );
