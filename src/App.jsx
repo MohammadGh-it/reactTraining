@@ -5,7 +5,11 @@
 import './App.css'
 import { Fragment } from 'react';
 import User from './User.jsx';
-import { useState } from 'react';
+import { useEffect , useState } from 'react';
+import ChildComponent from './ChildComponent.jsx';
+
+  
+
 
   const initialUsers = [
   {Fname:"Mohammad" , Lname:"Ghiyasvand" , City:"Tehran" , Age:25},
@@ -20,13 +24,23 @@ const App = ()=>{
     const newUsers = users.filter((myuser) => myuser.Fname !== name);
     setUsers(newUsers);
   };
+  useEffect(()=>{
+    // mounting
+    console.log("this is mount");
+
+    // unmounting
+    return () => {
+      console.log("this is unmount");
+    };
+  },[]);
 
   return (
-  <>
+  <div className=' bg-amber-500 '>
     {users.map((myuser)=>(
-      <User key={myuser.Fname} {...myuser} myBotton = {() => myBotton(myuser.Fname)} />
+      <User  key={myuser.Fname} {...myuser} myBotton = {() => myBotton(myuser.Fname)} />
     ))};
-  </>
+    <ChildComponent/>
+  </div>
   
   );
 };

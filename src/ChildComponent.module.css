@@ -1,0 +1,16 @@
+.heyYou{
+    color: red;
+    background-color: blue;
+    width: 500px;
+    height: 80px;
+    border-radius: 20px;
+    
+}
+/* .heyYou::after{
+    content: "heyyy0";
+    color: blueviolet;
+    } */
+.heyYou::selection{
+    color: yellow;
+    background-color: burlywood;
+}
